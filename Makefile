@@ -11,7 +11,8 @@ run-all: run-dynamic run-static
 .PHONY: build-dynamic
 build-dynamic:
 	@cd lib/hello && cargo build --release
-	@cp lib/hello/target/release/libhello.so lib/
+# @cp lib/hello/target/release/libhello.so lib/
+	@cp lib/hello/target/release/libhello.dylib lib/
 	go build -ldflags="-r $(ROOT_DIR)lib" main_dynamic.go
 
 .PHONY: build-static
